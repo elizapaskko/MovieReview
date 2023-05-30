@@ -1,0 +1,47 @@
+<%= form_for @movie, html: { multipart: true } do |f| %>
+  <% if movie.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+
+      <ul>
+      <% movie.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field" style="display:flex;flex-direction:column;margin-bottom:20px">
+    <%= f.label :title, style: "color:white" %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field" style="display:flex;flex-direction:column;margin-bottom:20px">
+    <%= f.label :description, style: "color:white" %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field" style="display:flex;flex-direction:column;margin-bottom:20px">
+    <%= f.label :movie_length, style: "color:white" %>
+    <%= f.text_field :movie_length %>
+  </div>
+
+  <div class="field" style="display:flex;flex-direction:column;margin-bottom:20px">
+    <%= f.label :director, style: "color:white" %>
+    <%= f.text_field :director %>
+  </div>
+
+  <div class="field" style="display:flex;flex-direction:column;margin-bottom:20px">
+    <%= f.label :rating, style: "color:white" %>
+    <%= f.text_field :rating %>
+  </div>
+  
+   <div class="field" style="display:flex;flex-direction:column;margin-bottom:20px">
+    <%= f.label :image, style: "color:white" %>
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="actions" style="margin-bottom:40px">
+    <%= f.submit "Okay", class: "btn-primary" %>
+  </div>
+<% end %>

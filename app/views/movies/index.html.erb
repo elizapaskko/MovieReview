@@ -1,0 +1,41 @@
+<% if !user_signed_in? %>
+  <div class="jumbotron">
+    <h1>Your Favorite Movies Reviewed</h1>
+    <p>Prepare to embark on a cinematic journey filled with breathtaking stories, unforgettable characters, and captivating visuals. Here, we celebrate the art of filmmaking and the magical world it creates, where imagination knows no bounds.</p>
+    <p><%= link_to "Sign Up To Write A Review", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
+  </div>
+<% end %>
+
+<div class='row mx-md-n5 alert alert-dark'>
+  <a href="/?rating=G" class="btn btn-primary">G</a>
+  <a href="/?rating=M" class="btn btn-primary">M</a>
+  <a href="/?rating=R" class="btn btn-primary">R</a>
+  <a href="/?rating=X" class="btn btn-primary">X</a>
+</div>
+
+
+
+<% if not @search || @search != "" %>
+    <p style="color:white;font-size:24px;margin-bottom:20px">search results for "<%= @search %>"</p>
+  <% end %>
+
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:20px">
+  
+  <% @movies.each do |movie| %>
+    <div class="">
+      <div class="thumbnail">
+        <%= link_to (image_tag movie.image.url(:medium), class: 'image'), movie %>
+      </div>
+    </div>
+  <% end %>
+
+</div>
+
+
+<div>
+  <%= link_to_prev_page @movies, 'Prev Page' %>
+  <%= link_to_next_page @movies, 'Next Page' %>
+</div>
+
+
+
