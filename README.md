@@ -43,12 +43,6 @@ Once the Movie Review App is running, you can begin using its features:
     On the movie details page, you can read reviews left by other users, rate the movie, and leave your own review.
     Log out of the app when you're done by clicking on the "Log Out" link in the navigation menu.
 
-## Routes
-### Маршрути для юзері:
-- GET '/users/sign_in': отримати форму для логіну
-- GET '/users/sign_up':
-- POST '/users/sign_in': відправити запит на логін
-- DELETE /users/sign_out: вийти з облікового запису
 
 ### Built With:
 - Rails - Web framework
